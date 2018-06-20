@@ -1,5 +1,7 @@
 # contract-test
 
+For testing a smart contract using truffle, ganache-cli with chai as assert engine
+
 ### Intro
 
 Project structure
