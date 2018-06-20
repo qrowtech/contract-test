@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 let contractInstance = '';
 
 contract('TodoList', accounts => {
-    'use strict'
+    'use strict';
     beforeEach(async () => {
         contractInstance = await TodoList.deployed();
     });
