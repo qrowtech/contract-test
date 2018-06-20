@@ -12,9 +12,9 @@ Project structure
 - migrations/  - will contain specific files where you can determine how your contracts will be deployed.
     - 1_initial_migration.s
 - test/  - is tests for javascript or solidity.
-    - todoList.js
-- truffle-config.js - config file with parameters
-- truffle.js
+    - todoList.js - where the contact tests will happen
+- truffle-config.js 
+- truffle.js - config file with parameters (network and such)
 
 ### Testing
 
