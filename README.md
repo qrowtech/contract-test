@@ -7,20 +7,14 @@ For testing a smart contract using truffle, ganache-cli with chai as assert engi
 Project structure
 
 
-- contracts/
+- contracts/ - where you'll store all smart contracts
     - TodoList.sol
-- migrations/
+- migrations/  - will contain specific files where you can determine how your contracts will be deployed.
     - 1_initial_migration.s
-- test/
+- test/  - is tests for javascript or solidity.
     - todoList.js
-- truffle-config.js
+- truffle-config.js - config file with parameters
 - truffle.js
-
-contracts/ - is where you'll store all smart contracts
-migrations/ - will contain specific files where you can determine how your contracts will be deployed. 
-test/ folder - is tests for javascript or solidity. 
-truffle-config.js - config file with parameters
-truffle.js - similar to config file
 
 ### Testing
 
