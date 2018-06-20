@@ -10,6 +10,7 @@ Project structure
 - migrations/
     - 1_initial_migration.s
 - test/
+    - todoList.js
 - truffle-config.js
 - truffle.js
 
