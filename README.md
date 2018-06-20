@@ -1,4 +1,4 @@
-#contract-test
+# contract-test
 
 ### Intro
 
@@ -7,11 +7,11 @@ Project structure
 
 - contracts/
     - TodoList.sol
-- migrations
+- migrations/
     - 1_initial_migration.s
-- test
-truffle-config.js
-truffle.js
+- test/
+- truffle-config.js
+- truffle.js
 
 contracts/ - is where you'll store all smart contracts
 migrations/ - will contain specific files where you can determine how your contracts will be deployed. 
