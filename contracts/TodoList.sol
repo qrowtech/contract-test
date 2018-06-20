@@ -16,6 +16,7 @@ contract TodoList {
     mapping (address => Todo[MAX_AMOUNT_OF_TODOS]) public todos;
 
     // Owner => last todo id
+
     mapping (address => uint) public lastIds;
 
     modifier onlyOwner(address _owner) {
@@ -29,8 +30,11 @@ contract TodoList {
         // create a Todo with the constructor Todo(id, content, owner, isCompleted, timestamp)
         // msg.sender is one who called contract
         Todo memory myNote = Todo(lastIds[msg.sender], _content, msg.sender, false, now);
-        // 
+        
+        // add the new note to the todos array
         todos[msg.sender][lastIds[msg.sender]] = myNote;
+        
+        // if the lastIs of the sender address is equal or larger than 100
         if (lastIds[msg.sender] >= MAX_AMOUNT_OF_TODOS) {
             lastIds[msg.sender] = 0;
         } else {
@@ -40,8 +44,13 @@ contract TodoList {
 
     // Mark a todo as completed
     function markTodoAsCompleted(uint _todoId) public onlyOwner(todos[msg.sender][_todoId].owner){
-        require(_todoId < MAX_AMOUNT_OF_TODOS); // check so that todoId is lower than 100
+        // check so that todoId is lower than 100
+        require(_todoId < MAX_AMOUNT_OF_TODOS); 
+        
+        // check so that the to-do is not already complete 
         require(!todos[msg.sender][_todoId].isCompleted);
+
+        // set isComplete state to true
         todos[msg.sender][_todoId].isCompleted = true;
     }
 }
