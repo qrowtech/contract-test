@@ -8,7 +8,7 @@ Project structure
 
 
 - contracts/ - where you'll store all smart contracts
-    - TodoList.sol
+    - TodoList.sol - a smart contract where one could add and complete to-dos
 - migrations/  - will contain specific files where you can determine how your contracts will be deployed.
     - 1_initial_migration.s
 - test/  - is tests for javascript or solidity.
