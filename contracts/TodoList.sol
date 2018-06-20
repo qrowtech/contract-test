@@ -1,6 +1,8 @@
 pragma solidity ^0.4.23;
 
 contract TodoList {
+
+    // structs are like js objects
     struct Todo {
         uint256 id;
         bytes32 content;
@@ -16,9 +18,10 @@ contract TodoList {
     mapping (address => Todo[MAX_AMOUNT_OF_TODOS]) public todos;
 
     // Owner => last todo id
-
+    // TODO whad is dis? 
     mapping (address => uint) public lastIds;
 
+    // modifier to make sure that only the owners can mark to-dos as complete 
     modifier onlyOwner(address _owner) {
         require(msg.sender == _owner);
         _;
