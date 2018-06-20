@@ -25,15 +25,19 @@ Code that execute and record the state of the contract. The contract resides at 
 
 - `address`: 20 byte value (Ethereum address). Has these members/properties:
     - `balance` (uint256) - query the balance of an address  
-    - `transfer(amount)` - to send Ether (units of wei) to an address 
-Example:
+    - `transfer(amount)` - to send Ether (units of wei) to an address  
+    - `send(amount)` return (bool) - low-level counterpart of transer. If the execution fails, the current contract will not stop with an exception, but `send` will return false. The transfer fails if the call stack depth is at 1024, and fails also if the recipient runs our of gas. So always check the return value of `send`
+    - `call` -  to interact with contracts that do not adhere to the ABI(?), the funciton `call` is provided which takes an artitrary number of arguments of any type. These arguments are padded to 32 bytes and concatenated. One exception is the case where the first argument is encoded to exactly four bytes. In this case, it's not padded to allow the use of function signatures here. 
+
+Example balance and transfer:
+
 ```solidity
 address x = 0x123;
 address myAddress = this;
 if (x.balance < 10 && myAddress.balance >= 10) x.transfer(10);
 ```
-    - `send(amount) return (bool)` - low-level counterpart of transer. If the execution fails, the current contract will not stop with an exception, but `send` will return false. The transfer fails if the call stack depth is at 1024, and fails also if the recipient runs our of gas. So always check the return value of `send`
-- `call` -  to interact with contracts that do not adhere to the ABI(?), the funciton `call` is provided which takes an artitrary number of arguments of any type. These arguments are padded to 32 bytes and concatenated. One exception is the case where the first argument is encoded to exactly four bytes. In this case, it's not padded to allow the use of function signatures here. 
+
+
 
 ### Migrations
 
